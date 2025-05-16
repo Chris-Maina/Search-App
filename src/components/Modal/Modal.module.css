@@ -1,0 +1,79 @@
+.dialog {
+  border: 1.5px solid var(--accent-color);
+  border-radius: 14px;
+  box-shadow: 0 8px 32px rgba(var(--modal-base-color), 0.22), 0 1.5px 6px rgba(var(--modal-shadow-color), 0.12);
+  padding: 0;
+  min-width: 400px;
+  max-width: 600px;
+  width: 90vw;
+  background: var(--background-color);
+  color: var(--font-color);
+  font-size: 1.15rem;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+/* Animating using popover-open and @starting-style */
+.dialog:popover-open {
+  opacity: 1;
+  transform: scale(1);
+}
+
+@starting-style {
+  .dialog:popover-open {
+    opacity: 0;
+    transform: scale(0);
+  }
+}
+
+.dialog::backdrop {
+  background: rgba(var(--modal-base-color), 0.35);
+  backdrop-filter: blur(4px);
+  transition: background 0.3s;
+}
+
+article {
+  padding: 2rem 2rem 1.5rem 2rem;
+}
+
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid var(--accent-color);
+  margin-bottom: 1.25rem;
+  padding-bottom: 0.75rem;
+}
+
+h2 {
+  margin: 0;
+  font-size: 1.7rem;
+  color: var(--foreground-color);
+}
+
+.closeBtn {
+  background: none;
+  border: none;
+  color: var(--foreground-color);
+  font-size: 2.1rem;
+  cursor: pointer;
+  padding: 0 0.4rem;
+  border-radius: 4px;
+  transition: background 0.2s;
+}
+
+.closeBtn:hover,
+.closeBtn:focus {
+  background: var(--accent-color);
+  color: var(--background-color);
+  outline: none;
+}
+
+@media (prefers-color-scheme: dark) {
+  .dialog {
+    box-shadow: 0 8px 32px rgba(241, 239, 236, 0.13), 0 1.5px 6px rgba(var(--modal-shadow-color), 0.22);
+  }
+  .dialog::backdrop {
+    background: rgba(var(--modal-base-color), 0.75);
+    backdrop-filter: blur(6px);
+  }
+}
