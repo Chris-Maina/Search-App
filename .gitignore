@@ -28,6 +28,3 @@ coverage
 
 # TypeScript cache
 *.tsbuildinfo
-
-# Project documentation and instructions
-agent-instructions.md
